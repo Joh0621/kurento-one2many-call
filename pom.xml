@@ -70,13 +70,6 @@
 			<artifactId>kurento-utils-js</artifactId>
 		</dependency>
 
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<!-- provided 表明该包只在编译和测试的时候使用，去除默认的tomcat -->
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
