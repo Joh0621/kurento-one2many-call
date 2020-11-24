@@ -176,14 +176,16 @@ public class CallHandler extends TextWebSocketHandler {
 
     play.setWebRtcEndpoint(nextWebRtc);
 
+    int tag = jsonMessage.get("tag").getAsInt();
+    if (jsonMessage.get("tag").getAsInt() == 0) {
+      tag=1;
+    }
 
-
-    int tag=jsonMessage.get("tag").getAsInt();
     int tagUrl = 32+tag;
 
     String videourl = "rtsp://yxxny:yxxny12345@vpn.yongx.net:1554/h264/ch"+ tagUrl+"/main/av_stream";
 
-    final PlayerEndpoint playerEndpoint = new PlayerEndpoint.Builder(pipeline, videourl).withNetworkCache(0).build();
+    final PlayerEndpoint  playerEndpoint = new PlayerEndpoint.Builder(pipeline, videourl).withNetworkCache(0).build();
     play.setPlayerEndpoint(playerEndpoint);
     users.put(session.getId(), play);
 
